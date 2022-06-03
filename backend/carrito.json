@@ -1,0 +1,68 @@
+[
+  {
+    "timestamp": 1654212179517,
+    "productos": [],
+    "id": 1
+  },
+  {
+    "timestamp": 1654212357385,
+    "productos": [],
+    "id": 2
+  },
+  {
+    "timestamp": 1654212416644,
+    "productos": [],
+    "id": 3
+  },
+  {
+    "timestamp": 1654212492514,
+    "productos": [],
+    "id": 4
+  },
+  {
+    "timestamp": 1654212504517,
+    "productos": [
+      {
+        "timestamp": 1654172998764,
+        "nombre": "Calculadora",
+        "precio": 234.56,
+        "url": "https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-256.png",
+        "id": 2,
+        "descripcion": "es una calculadora",
+        "codigo": "4074",
+        "stock": 34
+      },
+      {
+        "timestamp": 1654172998765,
+        "nombre": "Globo Terráqueo",
+        "precio": 345.67,
+        "url": "https://cdn3.iconfinder.com/data/icons/education-209/64/globe-earth-geograhy-planet-school-256.png",
+        "id": 3,
+        "descripcion": "es un lapiz",
+        "codigo": "7544",
+        "stock": 52
+      }
+    ],
+    "id": 5
+  },
+  {
+    "timestamp": 1654212606818,
+    "productos": [],
+    "id": 6
+  },
+  {
+    "timestamp": 1654212663040,
+    "productos": [],
+    "id": 7
+  },
+  {
+    "timestamp": 1654212688937,
+    "productos": [],
+    "id": 8
+  },
+  {
+    "timestamp": 1654212699918,
+    "productos": [],
+    "id": 9
+  }
+]

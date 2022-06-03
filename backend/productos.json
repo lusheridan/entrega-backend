@@ -1,0 +1,42 @@
+[
+  {
+    "timestamp": 1654172998763,
+    "nombre": "Escuadra",
+    "precio": 123.45,
+    "url": "https://cdn3.iconfinder.com/data/icons/education-209/64/ruler-triangle-stationary-school-256.png",
+    "id": 1,
+    "descripcion": "es una escuadra",
+    "codigo": "8254",
+    "stock": 28
+  },
+  {
+    "timestamp": 1654172998764,
+    "nombre": "Calculadora",
+    "precio": 234.56,
+    "url": "https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-256.png",
+    "id": 2,
+    "descripcion": "es una calculadora",
+    "codigo": "4074",
+    "stock": 34
+  },
+  {
+    "timestamp": 1654172998765,
+    "nombre": "Globo Terráqueo",
+    "precio": 345.67,
+    "url": "https://cdn3.iconfinder.com/data/icons/education-209/64/globe-earth-geograhy-planet-school-256.png",
+    "id": 3,
+    "descripcion": "es un lapiz",
+    "codigo": "7544",
+    "stock": 52
+  },
+  {
+    "timestamp": 1654208128562,
+    "nombre": "Escuadra",
+    "descripcion": "es una escuadra",
+    "codigo": "8254",
+    "url": "https://cdn3.iconfinder.com/data/icons/education-209/64/ruler-triangle-stationary-school-256.png",
+    "precio": 123.45,
+    "stock": "50",
+    "id": 6
+  }
+]
