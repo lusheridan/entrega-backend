@@ -28,15 +28,5 @@
     "descripcion": "es un lapiz",
     "codigo": "7544",
     "stock": 52
-  },
-  {
-    "timestamp": 1654208128562,
-    "nombre": "Escuadra",
-    "descripcion": "es una escuadra",
-    "codigo": "8254",
-    "url": "https://cdn3.iconfinder.com/data/icons/education-209/64/ruler-triangle-stationary-school-256.png",
-    "precio": 123.45,
-    "stock": "50",
-    "id": 6
   }
 ]

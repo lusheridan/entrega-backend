@@ -1,5 +1,5 @@
 const { Router } = require("express");
-const Contenedor = require("../contenedor");
+const Contenedor = require("../Contenedor");
 const isAdmin = require("../middlewares/isAdmin");
 
 const router = Router();
