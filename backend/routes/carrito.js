@@ -1,17 +1,12 @@
 const { Router } = require("express");
-const Contenedor = require("../Contenedor");
-const isAdmin = require("../middlewares/isAdmin");
+const { productosDao, carritosDao } = require("../daos");
 
 const router = Router();
-const contenedorCarrito = new Contenedor("./carrito.json");
-const contenedorProductos = new Contenedor("./productos.json");
-
-// id, timestamp(carrito), productos: { id, timestamp(producto), nombre, descripcion, código, foto (url), precio, stock }
-// const body = req.body;
-// const { title, price, thumbnail } = body;
+const contenedorCarrito = carritosDao();
+const contenedorProductos = productosDao();
 
 router.get("/:id/productos", async (req, res) => {
-  const id = parseInt(req.params.id);
+  const id = req.params.id;
   const carrito = await contenedorCarrito.getById(id);
   if (!carrito) {
     return res.json({ error: `el carrito con id ${id} no existe` }, 404);
@@ -30,7 +25,7 @@ router.post("/", async (req, res) => {
 });
 
 router.post("/:id/productos", async (req, res) => {
-  const id = parseInt(req.params.id);
+  const id = req.params.id;
   const carrito = await contenedorCarrito.getById(id);
   if (!carrito) {
     return res.json({ error: `el carrito con id ${id} no existe` }, 404);
@@ -55,12 +50,12 @@ router.post("/:id/productos", async (req, res) => {
 });
 
 router.delete("/:id/productos/:id_prod", async (req, res) => {
-  const id = parseInt(req.params.id);
+  const id = req.params.id;
   const carrito = await contenedorCarrito.getById(id);
   if (!carrito) {
     return res.json({ error: `el carrito con id ${id} no existe` }, 404);
   }
-  const idProducto = parseInt(req.params.id_prod);
+  const idProducto = req.params.id_prod;
   const index = carrito.productos.indexOf(
     carrito.productos.find((x) => x.id === idProducto)
   );
@@ -75,7 +70,7 @@ router.delete("/:id/productos/:id_prod", async (req, res) => {
 });
 
 router.delete("/:id", async (req, res) => {
-  const id = parseInt(req.params.id);
+  const id = req.params.id;
   const result = await contenedorCarrito.deleteById(id);
 
   if (!result) {

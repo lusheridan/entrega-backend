@@ -1,6 +1,6 @@
 const { promises: fs } = require("fs");
 
-class Contenedor {
+class ContenedorFile {
   constructor(fileName) {
     this.fileName = fileName;
   }
@@ -84,4 +84,4 @@ class Contenedor {
   }
 }
 
-module.exports = Contenedor;
+module.exports = ContenedorFile;

@@ -1,13 +1,13 @@
 const { Router } = require("express");
-const Contenedor = require("../Contenedor");
+const { productosDao } = require("../daos");
 const isAdmin = require("../middlewares/isAdmin");
 
 const router = Router();
-const contenedor = new Contenedor("./productos.json");
+const contenedor = productosDao();
 
 router.get("/:id?", async (req, res) => {
   if (req.params.id) {
-    const producto = await contenedor.getById(parseInt(req.params.id));
+    const producto = await contenedor.getById(req.params.id);
     res.send(producto);
   } else {
     const productos = await contenedor.getAll();
@@ -16,7 +16,7 @@ router.get("/:id?", async (req, res) => {
 });
 
 router.delete("/:id", isAdmin, async (req, res) => {
-  const id = parseInt(req.params.id);
+  const id = req.params.id;
   const result = await contenedor.deleteById(id);
 
   if (!result) {
@@ -27,7 +27,7 @@ router.delete("/:id", isAdmin, async (req, res) => {
 });
 
 router.put("/:id", isAdmin, async (req, res) => {
-  const id = parseInt(req.params.id);
+  const id = req.params.id;
   const body = req.body;
   const productos = await contenedor.editById(id, body);
 
