@@ -1,11 +1,12 @@
 const { Router } = require("express");
 const { productosDao, carritosDao } = require("../daos");
+const isAuth = require("../middlewares/isAuth");
 
 const router = Router();
 const contenedorCarrito = carritosDao();
 const contenedorProductos = productosDao();
 
-router.get("/:id/productos", async (req, res) => {
+router.get("/:id/productos", isAuth, async (req, res) => {
   const id = req.params.id;
   const carrito = await contenedorCarrito.getById(id);
   if (!carrito) {
@@ -15,7 +16,7 @@ router.get("/:id/productos", async (req, res) => {
   res.json(carrito.productos ?? []);
 });
 
-router.post("/", async (req, res) => {
+router.post("/", isAuth, async (req, res) => {
   const nuevoCarrito = await contenedorCarrito.save({
     timestamp: Date.now(),
     productos: [],
@@ -24,7 +25,7 @@ router.post("/", async (req, res) => {
   res.json(nuevoCarrito);
 });
 
-router.post("/:id/productos", async (req, res) => {
+router.post("/:id/productos", isAuth, async (req, res) => {
   const id = req.params.id;
   const carrito = await contenedorCarrito.getById(id);
   if (!carrito) {
@@ -49,7 +50,7 @@ router.post("/:id/productos", async (req, res) => {
   res.json(nuevoCarrito);
 });
 
-router.delete("/:id/productos/:id_prod", async (req, res) => {
+router.delete("/:id/productos/:id_prod", isAuth, async (req, res) => {
   const id = req.params.id;
   const carrito = await contenedorCarrito.getById(id);
   if (!carrito) {
@@ -69,7 +70,7 @@ router.delete("/:id/productos/:id_prod", async (req, res) => {
   return res.json(nuevoCarrito);
 });
 
-router.delete("/:id", async (req, res) => {
+router.delete("/:id", isAuth, async (req, res) => {
   const id = req.params.id;
   const result = await contenedorCarrito.deleteById(id);
 

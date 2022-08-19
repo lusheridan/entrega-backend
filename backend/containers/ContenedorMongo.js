@@ -7,6 +7,10 @@ class ContenedorMongo {
   constructor(collectionName, docSchema) {
     this.collection = mongoose.model(collectionName, docSchema);
   }
+  async getByAttribute(attribute, value) {
+    const record = await this.collection.findOne({ [attribute]: value });
+    return record;
+  }
 
   async getAll() {
     try {

@@ -1,6 +1,7 @@
 const admin = require("firebase-admin");
 
 const serviceAccount = require("../firebaseKey.js");
+const { logError } = require("../helpers/logger.js");
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
@@ -49,7 +50,7 @@ class ContenedorFirebase {
       await doc.update(newValues);
       return newValues;
     } catch (error) {
-      console.log(error);
+      logError.error("Error al actualizar por ID", error);
       if (error.code === 5) {
         return false;
       }

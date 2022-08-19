@@ -1,8 +1,10 @@
 const dotenv = require("dotenv");
+const { logError } = require("../helpers/logger.js");
 dotenv.config();
 
 let productosDaoInstance;
 let carritosDaoInstance;
+let usuariosDaoInstance;
 
 const productosDao = function () {
   if (!productosDaoInstance) {
@@ -20,7 +22,7 @@ const productosDao = function () {
         productosDaoInstance = new ProductosDaoFirebase();
         break;
       default:
-        console.log("Base de datos no especificada");
+        logError.error("Base de datos no especificada", error);
         break;
     }
   }
@@ -43,7 +45,7 @@ const carritosDao = function () {
         carritosDaoInstance = new CarritosDaoFirebase();
         break;
       default:
-        console.log("Base de datos no especificada");
+        logError.error("Base de datos no especificada", error);
         break;
     }
   }
@@ -51,4 +53,28 @@ const carritosDao = function () {
   return carritosDaoInstance;
 };
 
-module.exports = { productosDao, carritosDao };
+const usuariosDao = function () {
+  if (!usuariosDaoInstance) {
+    switch (process.env.DB_NAME) {
+      case "mongoDB":
+        const UsuariosDaoMongo = require("./usuarios/UsuariosDaoMongo.js");
+        usuariosDaoInstance = new UsuariosDaoMongo();
+        break;
+      case "file":
+        const UsuariosDaoFile = require("../containers/ContenedorFile");
+        usuariosDaoInstance = new UsuariosDaoFile("carrito.json");
+        break;
+      case "firebase":
+        const UsuariosDaoFirebase = require("./usuarios/UsuariosDaoFirebase");
+        usuariosDaoInstance = new UsuariosDaoFirebase();
+        break;
+      default:
+        logError.error("Base de datos no especificada", error);
+        break;
+    }
+  }
+
+  return usuariosDaoInstance;
+};
+
+module.exports = { productosDao, carritosDao, usuariosDao };
