@@ -1,11 +1,11 @@
 const passport = require("passport");
 const { Strategy } = require("passport-local");
-const { usuariosDao, carritosDao } = require("../daos");
 const bcrypt = require("bcrypt");
 const { notificarNuevoUsuario } = require("../helpers/notifications");
+const Factory = require("../daos/Factory");
 const localStrategy = Strategy;
-const usersContainer = usuariosDao();
-const carritosContainer = carritosDao();
+const usersContainer = Factory.get("usuario");
+const carritosContainer = Factory.get("carrito");
 
 passport.use(
   "register",

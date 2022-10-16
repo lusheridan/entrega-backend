@@ -23,6 +23,7 @@
     "nodemon": "^2.0.16",
     "passport": "^0.6.0",
     "passport-local": "^1.0.0",
+    "pug": "^3.0.2",
     "short-uuid": "^4.2.0",
     "twilio": "^3.80.1",
     "yargs": "^16.2.0"

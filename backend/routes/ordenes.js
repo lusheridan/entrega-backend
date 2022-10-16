@@ -1,13 +1,13 @@
 const { Router } = require("express");
 const router = Router();
-const { carritosDao } = require("../daos");
 const isAuth = require("../middlewares/isAuth");
 const {
   whatsappNuevaVenta,
   mailNuevaVenta,
 } = require("../helpers/notifications");
+const Factory = require("../daos/Factory");
 const short = require("short-uuid");
-const carritosContainer = carritosDao();
+const carritosContainer = Factory.get("carrito");
 
 router.post("/", isAuth, async (req, res) => {
   const { carritoId, telefono } = req.user;

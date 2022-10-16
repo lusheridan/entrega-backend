@@ -31,6 +31,7 @@ if (isCluster && cluster.isMaster) {
   app.use(express.json());
   app.use(express.urlencoded({ extended: true }));
   app.use("/", express.static(__dirname + "/public"));
+  app.set("view engine", "pug");
   app.use(
     session({
       store: MongoStore.create({
@@ -49,13 +50,10 @@ if (isCluster && cluster.isMaster) {
 
   app.use("/api", router);
   app.use("*", (req, res) => {
-    return res.json(
-      {
-        error: -2,
-        descripcion: `la ruta ${req.originalUrl} con método ${req.method} no implementada`,
-      },
-      404
-    );
+    res.render(`${__dirname}/views/404.pug`, {
+      route: req.originalUrl,
+      method: req.method,
+    });
   });
 
   const server = app.listen(PORT, () => {

@@ -1,10 +1,10 @@
 const { Router } = require("express");
-const { productosDao, carritosDao } = require("../daos");
 const isAuth = require("../middlewares/isAuth");
+const Factory = require("../daos/Factory");
 
 const router = Router();
-const contenedorCarrito = carritosDao();
-const contenedorProductos = productosDao();
+const contenedorCarrito = Factory.get("carrito");
+const contenedorProductos = Factory.get("producto");
 
 router.get("/:id/productos", isAuth, async (req, res) => {
   const id = req.params.id;

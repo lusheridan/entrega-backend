@@ -1,19 +1,19 @@
 {
 	"info": {
-		"_postman_id": "5df56431-3254-4ac6-a62a-1640a2e7ff2c",
-		"name": "Primera entrega",
+		"_postman_id": "4202fc71-9746-4c8c-b1f3-19794e13a6dd",
+		"name": "Entrega Final",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "19275925"
 	},
 	"item": [
 		{
-			"name": "Edit product",
+			"name": "Register",
 			"request": {
-				"method": "PUT",
+				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"price\": 100\r\n}",
+					"raw": "{\r\n    \"email\":\"mailfalso@gmail.com\",\r\n    \"password\": \"1234\",\r\n    \"nombre\": \"holita\",\r\n    \"direccion\": \"holita 1\",\r\n    \"edad\":\"33\",\r\n    \"telefono\":\"456\",\r\n    \"avatar\":\"imagen.jp\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -21,7 +21,64 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8080/api/productos/4",
+					"raw": "localhost:8080/api/auth/register",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Confirmar Orden",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/ordenes",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"ordenes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Edit product",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"precio\": 58\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/productos/H9iaKdJO7lBJVilcKvgY",
 					"host": [
 						"localhost"
 					],
@@ -29,7 +86,7 @@
 					"path": [
 						"api",
 						"productos",
-						"4"
+						"H9iaKdJO7lBJVilcKvgY"
 					]
 				}
 			},
@@ -70,7 +127,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"productId\": 1\r\n}",
+					"raw": "{\n    \"productId\": \"62b4df89ef90fa314bd91012\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -78,7 +135,7 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8080/api/carrito/29/productos",
+					"raw": "localhost:8080/api/carrito/62fd6e1278ba3981fb71420c/productos",
 					"host": [
 						"localhost"
 					],
@@ -86,7 +143,7 @@
 					"path": [
 						"api",
 						"carrito",
-						"29",
+						"62fd6e1278ba3981fb71420c",
 						"productos"
 					]
 				}
@@ -100,7 +157,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"nombre\": \"Lapiz\",\r\n    \"descripcion\": \"es un lapiz\",\r\n    \"código\": \"sarasa\",\r\n    \"url\": \"https://cdn3.iconfinder.com/data/icons/education-209/64/globe-earth-geograhy-planet-school-256.png\",\r\n    \"precio\": 154,\r\n    \"stock\": 54\r\n}",
+					"raw": "{\n    \"nombre\": \"Lapiz\",\n    \"descripcion\": \"es un lapiz\",\n    \"codigo\": \"sarasa\",\n    \"url\": \"https://cdn3.iconfinder.com/data/icons/education-209/64/globe-earth-geograhy-planet-school-256.png\",\n    \"precio\": 154,\n    \"stock\": 54\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -127,7 +184,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/api/productos/3",
+					"raw": "localhost:8080/api/productos/62b4df89ef90fa314bd91012",
 					"host": [
 						"localhost"
 					],
@@ -135,7 +192,7 @@
 					"path": [
 						"api",
 						"productos",
-						"3"
+						"62b4df89ef90fa314bd91012"
 					]
 				}
 			},
@@ -187,7 +244,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/api/carrito/3/productos/1",
+					"raw": "localhost:8080/api/carrito/1sWOKOCOFvg0H5yIpYVI/productos/rxv9XZoTy2TFU0TQ7DrO",
 					"host": [
 						"localhost"
 					],
@@ -195,9 +252,9 @@
 					"path": [
 						"api",
 						"carrito",
-						"3",
+						"1sWOKOCOFvg0H5yIpYVI",
 						"productos",
-						"1"
+						"rxv9XZoTy2TFU0TQ7DrO"
 					]
 				}
 			},
@@ -229,7 +286,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/api/productos/4",
+					"raw": "localhost:8080/api/productos/62b4e387fff28a891b1bec72",
 					"host": [
 						"localhost"
 					],
@@ -237,7 +294,7 @@
 					"path": [
 						"api",
 						"productos",
-						"4"
+						"62b4e387fff28a891b1bec72"
 					]
 				}
 			},
@@ -250,7 +307,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"price\": 100\r\n}",
+					"raw": "{\n    \"price\": 100\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -266,6 +323,64 @@
 					"path": [
 						"api",
 						"noexiste"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"mailfalso@gmail.com\",\r\n    \"password\": \"1234\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/auth/login",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Logout",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/auth/logout",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"auth",
+						"logout"
 					]
 				}
 			},
